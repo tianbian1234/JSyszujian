@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>测试插件</title>
+    </head>
+    <body>
+        <div id="num"></div>
+        <script src="./First.js"></script>
+        <script>
+            var numUpObj;
+            var X = 300, Z = X;
+            numUpObj = new numUp('num', 0, X, 5);
+            setInterval(() => {
+                if(!numUpObj){
+                    numUpObj = new numUp('num', 300, X, 5);
+                }else{
+                    numUpObj.dispose();
+                    numUpObj = new numUp('num', Z, X, 5);
+                };
+                Z = X;
+                X += 100; 
+            }, 20*1000)
+        </script>
+    </body>
+</html>
